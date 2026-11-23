@@ -59,3 +59,6 @@ KitoCRO code: `{code}` · Client: {name} ({email}) · Collected by: {assistant} 
 
 ---
 *Fields left blank weren't asked or don't apply. "Skipped" entries include the client's reason.*
+
+## Extras the client added
+{client_additions, one per line, in their words; or "None"}

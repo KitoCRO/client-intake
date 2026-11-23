@@ -284,6 +284,15 @@
         }
       }
     },
+    "client_additions": {
+      "description": "Extras the CLIENT added to KitoCRO's checklist during the intake, in their own words (never the assistant's ideas). Omit if none.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
     "playback": {
       "type": "object",
       "additionalProperties": false,

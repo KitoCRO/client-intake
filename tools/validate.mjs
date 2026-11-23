@@ -16,6 +16,7 @@ const NAMES = {
   "/references_shortfall": "Q4: at least 2 loved websites (or references_shortfall saying why not)",
   "/kitocro_examples": "the optional KitoCRO-sites step (feedback needed when wanted is true)",
   "/assets": "Q5: what's ready (logo, colours, fonts, photos, video, copy)",
+  "/client_additions": "the extras the client added (their words; leave it out if none)",
   "/playback/confirmed": "the client confirming the playback summary",
 };
 

@@ -27,8 +27,10 @@ Pick **exactly 2 real websites you think they'd react to**:
 - **If they named none:** pick 2 that fit their business (Q1) and the impression they want
   (Q3). E.g. "credible" → a calm, well-known firm in a nearby field; "friendly" → a warm
   local brand.
-- **Only sites you're sure are real and live.** With a browser, open them first and swap
-  out any that don't load.
+- **Only FAMOUS big-brand sites: household names whose address you know by heart.** Never a
+  small local business, and **never search the web for them** (search results are full of
+  small sites that are often dead). With a browser, open them first; if one doesn't load,
+  or the client says a link doesn't work, swap it for ANOTHER famous brand.
 
 Show them:
 - **With a browser:** open each one and walk through it together.

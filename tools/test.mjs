@@ -49,4 +49,9 @@ check("bare web addresses (no https://) are accepted", validate(bare).ok);
 const junk = load("brief.example.json"); junk.current_site.url = "my old site";
 check("a non-address current site is rejected", !validate(junk).ok);
 
+const extras = load("brief.example.json"); extras.client_additions = ["We also want it in Spanish."];
+check("client_additions (client extras) are accepted", validate(extras).ok);
+const emptyExtras = load("brief.example.json"); emptyExtras.client_additions = [];
+check("an empty client_additions list is rejected (leave it out instead)", !validate(emptyExtras).ok);
+
 process.exit(fail ? 1 : 0);

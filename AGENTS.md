@@ -2,7 +2,10 @@
 
 This repo is a **client intake kit**, not a codebase to modify.
 
-**Read and follow `START.md`.** It tells you how to interview the person you're working
+**Read `START.md` from beginning to end before you do ANY work** (its last line is
+`END OF KITOCRO SCRIPT`; if you haven't seen it, you haven't read it all). Then follow it.
+**KitoCRO's checklist in `START.md` runs the whole session.** You never add to it; only the
+client's extras are added, and after any detour you go straight back to the first open item. It tells you how to interview the person you're working
 with, help them pick reference websites, and produce and submit a website brief for
 KitoCRO.
 
