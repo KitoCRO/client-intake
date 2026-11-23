@@ -19,5 +19,10 @@ export function extraChecks(brief) {
       }
     }
   }
+  // references_shortfall is ONLY for fewer than 2 loved sites.
+  const loves = (brief?.references || []).filter((r) => r && r.verdict === "love").length;
+  if (brief?.references_shortfall !== undefined && loves >= 2) {
+    problems.push(`missing or invalid: references_shortfall is only for fewer than 2 loved sites, but this brief has ${loves}. Remove references_shortfall.`);
+  }
   return problems;
 }

@@ -64,4 +64,7 @@ check("a current site without 'what can go' is rejected", !validate(noRemove).ok
 const noSite = load("brief.example.json"); noSite.current_site = { url: "none" };
 check("no current site needs no keep/remove", validate(noSite).ok);
 
+const extraShort = load("brief.example.json"); extraShort.references_shortfall = "none";
+check("references_shortfall with 2+ loves is rejected", !validate(extraShort).ok);
+
 process.exit(fail ? 1 : 0);
