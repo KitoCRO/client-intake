@@ -2,12 +2,12 @@
 
 **If you're a KitoCRO client:** open Claude or ChatGPT and paste:
 
-> Read https://github.com/KitoCRO/client-intake and follow START.md. My KitoCRO code is `YOUR-CODE`.
+> Read https://raw.githubusercontent.com/KitoCRO/client-intake/main/START.md and follow it exactly. My KitoCRO code is `YOUR-CODE`.
 
 Your assistant will ask you 8 short questions, look at some websites with you, and
 send KitoCRO a brief. It takes about 15–20 minutes.
 
-**If you're an AI assistant:** start with [`START.md`](START.md).
+**If you're an AI assistant:** read [`START.md`](https://raw.githubusercontent.com/KitoCRO/client-intake/main/START.md) and follow it exactly. Everything you need is in that one file. Never guess questions or steps.
 
 | File | What it is |
 |---|---|
