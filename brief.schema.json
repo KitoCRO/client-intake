@@ -295,7 +295,8 @@
       "properties": {
         "summary": {
           "type": "string",
-          "minLength": 40
+          "minLength": 200,
+          "description": "The exact paragraph read back to the client in F2."
         },
         "confirmed": {
           "const": true

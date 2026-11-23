@@ -41,4 +41,7 @@ check("a 'meh' verdict on a suggested site is accepted", meh.references.some((r)
 const noSource = load("brief.example.json"); delete noSource.references[0].source;
 check("a reference without a source is rejected", !validate(noSource).ok);
 
+const stub = load("brief.example.json"); stub.playback.summary = "Maya confirmed the website intake summary.";
+check("a placeholder playback summary (<200 chars) is rejected", !validate(stub).ok);
+
 process.exit(fail ? 1 : 0);
