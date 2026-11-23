@@ -167,8 +167,7 @@
         "url": {
           "anyOf": [
             {
-              "type": "string",
-              "format": "uri"
+              "$ref": "#/$defs/weburl"
             },
             {
               "const": "none"
@@ -331,8 +330,7 @@
             ],
             "properties": {
               "url": {
-                "type": "string",
-                "format": "uri"
+                "$ref": "#/$defs/weburl"
               },
               "liked": {
                 "$ref": "#/$defs/text"
@@ -437,8 +435,7 @@
       ],
       "properties": {
         "url": {
-          "type": "string",
-          "format": "uri"
+          "$ref": "#/$defs/weburl"
         },
         "verdict": {
           "enum": [
@@ -489,6 +486,20 @@
           "required": [
             "name"
           ]
+        }
+      ]
+    },
+    "weburl": {
+      "description": "A web address; the https:// is optional (e.g. \"example.com\" or \"https://example.com/page\").",
+      "anyOf": [
+        {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https?://"
+        },
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*\\.[A-Za-z]{2,}(/\\S*)?$"
         }
       ]
     }

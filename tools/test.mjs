@@ -44,4 +44,9 @@ check("a reference without a source is rejected", !validate(noSource).ok);
 const stub = load("brief.example.json"); stub.playback.summary = "Maya confirmed the website intake summary.";
 check("a placeholder playback summary (<200 chars) is rejected", !validate(stub).ok);
 
+const bare = load("brief.example.json"); bare.current_site.url = "lakesidefamilydental.example.com"; bare.references[0].url = "mckinsey.com";
+check("bare web addresses (no https://) are accepted", validate(bare).ok);
+const junk = load("brief.example.json"); junk.current_site.url = "my old site";
+check("a non-address current site is rejected", !validate(junk).ok);
+
 process.exit(fail ? 1 : 0);

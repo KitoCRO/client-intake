@@ -154,7 +154,7 @@ https://raw.githubusercontent.com/KitoCRO/client-intake/main/brief.schema.json).
   "after_launch": { "who_updates": "" },
   "timing": { "deadline": "" },
   "decision": { "decision_makers": "", "budget": "" },
-  "kitocro_examples": { "wanted": false },
+  "kitocro_examples": { "wanted": true, "feedback": [ { "url": "https://kitocro.com", "liked": "<their words>", "disliked": "<their words>" } ] },
   "playback": { "summary": "", "confirmed": true }
 }
 ```
@@ -163,6 +163,7 @@ https://raw.githubusercontent.com/KitoCRO/client-intake/main/brief.schema.json).
 - 4A sites → `"source": "client"`; 4B sites → `"source": "suggested"`. A reference needs a `url` or a `name`.
 - **ONLY** if they loved fewer than 2 sites in total (count client + suggested), add `"references_shortfall": "<what they said>"`. With 2+ loves, leave it out.
 - A skipped 🔴 answer is written as `{"skipped": true, "reason": "<their reason>"}`.
+- **If they looked at kitocro.com, `kitocro_examples` MUST be `wanted: true` WITH the `feedback` entry** (their liked/disliked words). If they said no: `{"wanted": false}`.
 - Leave out fields they didn't talk about. **Never fill a field with your own guess.**
 - The readable copy is a short list of their answers under headings 1–8, in THEIR words. **No "overall vision", no "preferred design", no extra features, nothing invented.**
 
