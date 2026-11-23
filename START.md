@@ -52,7 +52,7 @@ the numbered list in YOUR OWN first message.**
 > 7. Who will update it after launch, and is there a date it needs to be live by?
 > 8. Are you the only yes, and do you have a budget range in mind?
 >
-> How this works: after each answer I'll just say "Got it, thanks." and ask the next question word for word, with no summaries until the end. If part of a question isn't answered yet (like what visitors should believe, or your current site's address), I'll ask just that missing part before moving on. If you've answered every part, I won't ask anything extra. Every message ends with a progress line, and a question only gets its ✅ once every part is answered. Before the read-back I'll double-check nothing is missing. Then I'll read everything back to you to check, write it up as your brief (with that read-back as its summary), and tell you exactly how to send it: paste it at intake.kitocro.com/<your code> or email it to titus@kitocro.com.
+> How this works: after each answer I'll just say "Got it, thanks." and ask the next question word for word, with no summaries until the end. If part of a question isn't answered yet (like what visitors should believe, or your current site's address), I'll ask just that missing part before moving on. If you've answered every part, I won't ask anything extra. Every message ends with a progress line, and a question only gets its ✅ once every part is answered. Before the read-back I'll double-check nothing is missing. Then I'll read everything back to you in ONE short paragraph, using only your words and adding nothing. Once you say it's right, I'll re-open KitoCRO's instructions (the same link you gave me) and write your brief in their exact format: a block of JSON (with that read-back as its summary) plus a short readable copy, again adding nothing you didn't say. Last, I'll tell you exactly how to send it: paste it at intake.kitocro.com/<your code> or email it to titus@kitocro.com.
 >
 > **Question 1 of 8:** What does your business do, and who is your ideal customer? What do they need to see before they contact you?
 >
@@ -122,13 +122,15 @@ straight to F1.
 
 If yes: give **https://kitocro.com** (open it if you can) and ask exactly: *"What do you like about it, and is there anything you don't like?"* If no: go to F2.
 
-**F2, the playback:** ONE short paragraph that summarises ONLY what they actually said,
-then exactly:
+**F2, the playback:** ONE short paragraph (not a list, no headings) that summarises ONLY
+what they actually said. **Add NOTHING:** no adjectives they didn't use ("welcoming", "modern"), no
+"overall direction/vision", no features they didn't ask for, no years or dates they didn't say. Then exactly:
 > Did I get that right? Anything to fix or add?
 
 Apply their corrections. Repeat until they say yes.
 
-**F3, the brief:** write it as JSON in exactly this shape (full rules:
+**F3, the brief:** FIRST re-open this file (the same link) so you copy the shape exactly. Write it as a
+**JSON code block** (NOT a document, canvas or prose report) in exactly this shape (full rules:
 https://raw.githubusercontent.com/KitoCRO/client-intake/main/brief.schema.json). Use their words.
 
 ```json
@@ -155,6 +157,7 @@ https://raw.githubusercontent.com/KitoCRO/client-intake/main/brief.schema.json).
 - If they loved fewer than 2 sites in total, add `"references_shortfall": "<what they said>"`.
 - A skipped 🔴 answer is written as `{"skipped": true, "reason": "<their reason>"}`.
 - Leave out fields they didn't talk about. **Never fill a field with your own guess.**
+- The readable copy is a short list of their answers under headings 1–8, in THEIR words. **No "overall vision", no "preferred design", no extra features, nothing invented.**
 
 **F4, send it** (the first option you can do). **ALWAYS do F4 and F5 in the SAME message as the brief, right after it.** Never end on the brief alone:
 - **You can make web requests:** `POST https://intake.kitocro.com/api/brief?code=<CODE>`
