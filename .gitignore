@@ -1,0 +1,5 @@
+node_modules/
+brief.json
+brief.md
+briefs/
+*.local.*

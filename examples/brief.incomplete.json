@@ -1,0 +1,115 @@
+{
+  "schema_version": "1",
+  "code": "HARBOR-7K2P",
+  "submitted_at": "2026-11-23T15:30:00Z",
+  "assistant": "Claude",
+  "client": {
+    "name": "Dana Whitfield",
+    "business_name": "Harbor Leadership Coaching",
+    "email": "dana@example.com"
+  },
+  "business": {
+    "what": "One-on-one executive coaching and a quarterly leadership workshop for mid-size companies.",
+    "customer": "Newly promoted directors and VPs at companies with 50\u2013500 people, usually sent by HR.",
+    "customer_needs_to_see": "That I'm properly trained and have done this for real leaders, not just a certificate.",
+    "how_found": "Mostly LinkedIn and referrals from past clients."
+  },
+  "why_now": {
+    "reason": "I'm going full-time with coaching next year and need the site to bring in clients on its own.",
+    "whats_wrong": "It looks like a template, nobody books from it, and I send people to LinkedIn instead.",
+    "want_because_so_that": "We want a credible site because HR managers check us first so that they book a discovery call."
+  },
+  "goal": {
+    "one_action": "Book a free discovery call.",
+    "believe": "Credible."
+  },
+  "references": [
+    {
+      "url": "https://www.example-busy-coach.com",
+      "verdict": "hate",
+      "why": "Pop-ups everywhere and it shouts at you.",
+      "specifics": [
+        "tone",
+        "layout"
+      ],
+      "source": "client"
+    },
+    {
+      "url": "https://www.mckinsey.com",
+      "verdict": "love",
+      "why": "Calm and serious, lots of white space, it feels expensive without trying.",
+      "specifics": [
+        "simplicity",
+        "layout",
+        "tone"
+      ],
+      "source": "client"
+    }
+  ],
+  "assets": {
+    "logo": {
+      "status": "ready"
+    },
+    "colours": {
+      "status": "partial",
+      "notes": "Navy and a warm gold, no exact codes yet."
+    },
+    "fonts": {
+      "status": "not sure"
+    },
+    "photos": {
+      "status": "need",
+      "notes": "Only old headshots; open to a new shoot."
+    },
+    "video": {
+      "status": "need"
+    },
+    "copy": {
+      "status": "partial",
+      "notes": "Bio is fine, services need rewriting."
+    }
+  },
+  "current_site": {
+    "url": "https://www.example.com",
+    "keep": "My bio and client testimonials.",
+    "remove": "The blog that was never updated."
+  },
+  "scope": {
+    "pages": [
+      "Home",
+      "Coaching",
+      "Workshops",
+      "About",
+      "Contact"
+    ],
+    "features": [
+      "Booking for discovery calls",
+      "Contact form"
+    ],
+    "existing_tools": [
+      "Calendly"
+    ]
+  },
+  "after_launch": {
+    "who_updates": "Me, a few times a year.",
+    "how_often": "Quarterly",
+    "platform_preference": "Don't care as long as I can make small edits.",
+    "complicated_or_simple": "Simple."
+  },
+  "timing": {
+    "deadline": "Before January",
+    "why_that_date": "Going full-time in January."
+  },
+  "decision": {
+    "decision_makers": "Just me.",
+    "budget": {
+      "skipped": true,
+      "reason": "Wants to see packages first"
+    },
+    "past_site": "Paid a freelancer about $1,200 three years ago; it never brought in a client."
+  },
+  "playback": {
+    "summary": "Harbor Leadership Coaching needs a calm, credible multi-page site that gets newly promoted leaders (and their HR managers) to book a free discovery call before January, using the existing logo and bio, new photos, and Calendly for booking.",
+    "confirmed": true
+  }
+}

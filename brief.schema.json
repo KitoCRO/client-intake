@@ -1,0 +1,549 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://intake.kitocro.com/brief.schema.json",
+  "title": "KitoCRO website intake brief",
+  "description": "Produced by the client's AI assistant from the 8 KitoCRO questions. 'answer' fields take the client's words; never-drop fields may instead be {skipped:true, reason}.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "code",
+    "submitted_at",
+    "client",
+    "business",
+    "why_now",
+    "goal",
+    "references",
+    "assets",
+    "current_site",
+    "scope",
+    "after_launch",
+    "timing",
+    "decision",
+    "playback"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1"
+    },
+    "code": {
+      "type": "string",
+      "pattern": "^([A-Z0-9]+-[A-Z0-9]{4}|NONE)$"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "assistant": {
+      "type": "string",
+      "description": "Which AI ran the intake, e.g. 'Claude', 'ChatGPT'."
+    },
+    "client": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "business_name"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/text"
+        },
+        "business_name": {
+          "$ref": "#/$defs/text"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        }
+      }
+    },
+    "business": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "what",
+        "customer",
+        "customer_needs_to_see"
+      ],
+      "properties": {
+        "what": {
+          "$ref": "#/$defs/answer"
+        },
+        "customer": {
+          "$ref": "#/$defs/answer"
+        },
+        "customer_needs_to_see": {
+          "$ref": "#/$defs/answer"
+        },
+        "how_found": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "why_now": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reason",
+        "whats_wrong"
+      ],
+      "properties": {
+        "reason": {
+          "$ref": "#/$defs/answer"
+        },
+        "whats_wrong": {
+          "$ref": "#/$defs/answer"
+        },
+        "want_because_so_that": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "goal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "one_action",
+        "believe"
+      ],
+      "properties": {
+        "one_action": {
+          "$ref": "#/$defs/answer"
+        },
+        "believe": {
+          "$ref": "#/$defs/answer"
+        }
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/reference"
+      }
+    },
+    "assets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "logo",
+        "colours",
+        "fonts",
+        "photos",
+        "video",
+        "copy"
+      ],
+      "properties": {
+        "logo": {
+          "$ref": "#/$defs/asset"
+        },
+        "colours": {
+          "$ref": "#/$defs/asset"
+        },
+        "fonts": {
+          "$ref": "#/$defs/asset"
+        },
+        "photos": {
+          "$ref": "#/$defs/asset"
+        },
+        "video": {
+          "$ref": "#/$defs/asset"
+        },
+        "copy": {
+          "$ref": "#/$defs/asset"
+        },
+        "notes": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "current_site": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "url"
+      ],
+      "properties": {
+        "url": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "uri"
+            },
+            {
+              "const": "none"
+            }
+          ]
+        },
+        "keep": {
+          "$ref": "#/$defs/text"
+        },
+        "remove": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shape"
+      ],
+      "properties": {
+        "shape": {
+          "anyOf": [
+            {
+              "enum": [
+                "one-page",
+                "multi-page",
+                "not sure"
+              ]
+            },
+            {
+              "$ref": "#/$defs/skipped"
+            }
+          ]
+        },
+        "pages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "features": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "existing_tools": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "after_launch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "who_updates"
+      ],
+      "properties": {
+        "who_updates": {
+          "$ref": "#/$defs/answer"
+        },
+        "how_often": {
+          "$ref": "#/$defs/text"
+        },
+        "platform_preference": {
+          "$ref": "#/$defs/text"
+        },
+        "uses_ai": {
+          "$ref": "#/$defs/text"
+        },
+        "complicated_or_simple": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "timing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "deadline"
+      ],
+      "properties": {
+        "deadline": {
+          "$ref": "#/$defs/answer"
+        },
+        "why_that_date": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "decision_makers",
+        "budget"
+      ],
+      "properties": {
+        "decision_makers": {
+          "$ref": "#/$defs/answer"
+        },
+        "budget": {
+          "$ref": "#/$defs/answer"
+        },
+        "past_site": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "playback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "summary",
+        "confirmed"
+      ],
+      "properties": {
+        "summary": {
+          "type": "string",
+          "minLength": 40
+        },
+        "confirmed": {
+          "const": true
+        },
+        "corrections": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "notes": {
+      "$ref": "#/$defs/text"
+    },
+    "kitocro_examples": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "wanted"
+      ],
+      "properties": {
+        "wanted": {
+          "type": "boolean"
+        },
+        "feedback": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "url",
+              "liked",
+              "disliked"
+            ],
+            "properties": {
+              "url": {
+                "type": "string",
+                "format": "uri"
+              },
+              "liked": {
+                "$ref": "#/$defs/text"
+              },
+              "disliked": {
+                "$ref": "#/$defs/text"
+              }
+            }
+          }
+        }
+      },
+      "if": {
+        "properties": {
+          "wanted": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "feedback"
+        ],
+        "properties": {
+          "feedback": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "references_shortfall": {
+      "type": "string",
+      "minLength": 3,
+      "description": "Only when the client couldn't name 2 loved sites (no-browser path): what they said instead."
+    },
+    "suggestions_skipped": {
+      "type": "string",
+      "minLength": 3,
+      "description": "Only if the client had no time for the 2 suggested sites: why."
+    }
+  },
+  "$defs": {
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "skipped": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "skipped",
+        "reason"
+      ],
+      "properties": {
+        "skipped": {
+          "const": true
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 3
+        }
+      }
+    },
+    "answer": {
+      "description": "The client's words ('not sure' is a valid answer), or an explicit skip with a reason.",
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "$ref": "#/$defs/skipped"
+        }
+      ]
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "ready",
+            "partial",
+            "need",
+            "not sure"
+          ]
+        },
+        "notes": {
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "verdict",
+        "why",
+        "source"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "verdict": {
+          "enum": [
+            "love",
+            "meh",
+            "hate"
+          ]
+        },
+        "why": {
+          "type": "string",
+          "minLength": 3
+        },
+        "specifics": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "colours",
+              "layout",
+              "fonts",
+              "photos",
+              "motion",
+              "tone",
+              "simplicity",
+              "other"
+            ]
+          }
+        },
+        "notes": {
+          "$ref": "#/$defs/text"
+        },
+        "name": {
+          "$ref": "#/$defs/text"
+        },
+        "source": {
+          "enum": [
+            "client",
+            "suggested"
+          ]
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "url"
+          ]
+        },
+        {
+          "required": [
+            "name"
+          ]
+        }
+      ]
+    }
+  },
+  "anyOf": [
+    {
+      "properties": {
+        "references": {
+          "contains": {
+            "type": "object",
+            "properties": {
+              "verdict": {
+                "const": "love"
+              }
+            },
+            "required": [
+              "verdict"
+            ]
+          },
+          "minContains": 2
+        }
+      }
+    },
+    {
+      "required": [
+        "references_shortfall"
+      ]
+    }
+  ],
+  "allOf": [
+    {
+      "anyOf": [
+        {
+          "properties": {
+            "references": {
+              "contains": {
+                "type": "object",
+                "properties": {
+                  "source": {
+                    "const": "suggested"
+                  }
+                },
+                "required": [
+                  "source"
+                ]
+              },
+              "minContains": 2
+            }
+          }
+        },
+        {
+          "required": [
+            "suggestions_skipped"
+          ]
+        }
+      ]
+    }
+  ]
+}
