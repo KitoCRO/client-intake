@@ -59,4 +59,9 @@ check("a client extra missing from the read-back is rejected", !validate(noAdded
 const withAdded = load("brief.example.json"); withAdded.client_additions = ["We also want it in Spanish."]; withAdded.playback.summary += ' Added: "we also want it in Spanish"';
 check("a client extra quoted in the read-back passes", validate(withAdded).ok);
 
+const noRemove = load("brief.example.json"); delete noRemove.current_site.remove;
+check("a current site without 'what can go' is rejected", !validate(noRemove).ok);
+const noSite = load("brief.example.json"); noSite.current_site = { url: "none" };
+check("no current site needs no keep/remove", validate(noSite).ok);
+
 process.exit(fail ? 1 : 0);

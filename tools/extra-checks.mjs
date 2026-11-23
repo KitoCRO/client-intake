@@ -10,5 +10,14 @@ export function extraChecks(brief) {
       problems.push(`missing or invalid: the read-back (playback.summary) must quote every client extra, but it doesn't include: "${add}"`);
     }
   }
+  // Q5: a client with a current site must say what stays AND what goes (an answer or {"skipped":...}).
+  const site = brief?.current_site;
+  if (site && site.url && site.url !== "none") {
+    for (const part of ["keep", "remove"]) {
+      if (site[part] === undefined || site[part] === "") {
+        problems.push(`missing or invalid: Q5: what ${part === "keep" ? "has to stay on" : "can go from"} their current site (/current_site/${part}). Ask: "On your current site, what ${part === "keep" ? "has to stay" : "can go"}?"`);
+      }
+    }
+  }
   return problems;
 }
