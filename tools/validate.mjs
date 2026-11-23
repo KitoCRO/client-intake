@@ -5,6 +5,7 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
+import { extraChecks } from "./extra-checks.mjs";
 
 const NAMES = {
   "/business/customer": "Q1: who the ideal customer is",
@@ -25,13 +26,14 @@ export function validate(brief) {
   const ajv = new Ajv2020({ allErrors: true, strict: false });
   addFormats(ajv);
   const ok = ajv.validate(schema, brief);
-  if (ok) return { ok: true, problems: [] };
+  const extra = extraChecks(brief);
+  if (ok) return { ok: extra.length === 0, problems: extra };
   const problems = [...new Set(ajv.errors.filter((e) => !(((e.keyword === "anyOf" || e.keyword === "allOf") && e.instancePath === "") || (e.keyword === "const" && /^\/references\/\d+\//.test(e.instancePath)))).map((e) => {
     const path = e.instancePath + (e.keyword === "required" ? `/${e.params.missingProperty}` : "");
     const hit = Object.keys(NAMES).find((k) => path === k || path.startsWith(k + "/"));
     return hit ? `missing or invalid: ${NAMES[hit]} (${path})` : `${path || "(root)"} ${e.message}`;
   }))];
-  return { ok: false, problems };
+  return { ok: false, problems: [...problems, ...extra] };
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
